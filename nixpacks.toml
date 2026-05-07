@@ -7,4 +7,4 @@ cmds = [
 ]
 
 [start]
-cmd = "gunicorn --chdir backend server:app --bind 0.0.0.0:$PORT --workers 2 --timeout 120"
+cmd = "gunicorn --chdir backend server:app --bind 0.0.0.0:$PORT"

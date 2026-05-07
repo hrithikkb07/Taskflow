@@ -404,10 +404,17 @@ def seed():
     return jsonify({'message':'Demo data seeded!','credentials':{'admin':{'email':'admin@demo.com','password':'admin123'},'member':{'email':'bob@demo.com','password':'member123'}}}), 201
 
 @app.route('/api/health', methods=['GET'])
-def health(): return jsonify({'status': 'ok', 'timestamp': datetime.now().isoformat(), 'app': 'TaskFlow'})
+def health():
+    return jsonify({
+        'status': 'ok',
+        'timestamp': datetime.now().isoformat(),
+        'app': 'TaskFlow'
+    })
+
+with app.app_context():
+    init_db()
 
 if __name__ == '__main__':
-    init_db()
     port = int(os.environ.get('PORT', 5000))
     print(f"🚀 TaskFlow running on http://0.0.0.0:{port}")
     app.run(host='0.0.0.0', port=port, debug=os.environ.get('DEBUG','false').lower()=='true')
