@@ -11,7 +11,7 @@ if not os.path.exists(FRONTEND_DIR):
 
 app = Flask(__name__, static_folder=FRONTEND_DIR, static_url_path='')
 app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', 'taskflow-dev-secret-2024')
-DATABASE = os.environ.get('DATABASE_PATH', os.path.join(os.path.dirname(os.path.abspath(__file__)), 'taskflow.db'))
+DATABASE = os.environ.get('DATABASE_PATH', '/tmp/taskflow.db')
 
 def get_db():
     db = getattr(g, '_database', None)

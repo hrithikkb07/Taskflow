@@ -245,3 +245,24 @@ The database is auto-created and demo data seeded on first boot.
 ## 📝 License
 
 MIT License — free to use and modify.
+
+
+## Vercel Deployment
+
+This project is configured for deployment on Vercel.
+
+### Environment Variables
+
+Add these in Vercel Project Settings:
+
+SECRET_KEY=your-secret-key
+DATABASE_PATH=/tmp/taskflow.db
+
+### Deploy Steps
+
+1. Push the repository to GitHub
+2. Import the repository into Vercel
+3. Deploy
+
+Note:
+SQLite storage on Vercel is temporary. For production use PostgreSQL/Supabase/Neon.
